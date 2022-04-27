@@ -78,8 +78,8 @@ export class TiendaInput {
          return Tienda.findOne({ where: { id } });
             }
    
-  
-     @Mutation(() => Boolean)
+    @UseMiddleware(isAuth)
+    @Mutation(() => Boolean)
     async updateTienda(
      @Arg("id", () => Int) id: number,
      @Arg("fields", () => TiendaUpdateInput) fields: TiendaUpdateInput
